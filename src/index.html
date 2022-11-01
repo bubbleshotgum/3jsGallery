@@ -20,11 +20,116 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+        .ControlPanel, .ScorePanel {
+            background: white;
+        }
+        .ControlPanel {
+            border-radius: 100%;
+            position: absolute;
+            left: 6%;
+            bottom: 4%;
+            width: 12%;
+            height: 16%;
+            display: grid;
+            padding: 12px 0 12px 3px;
+            grid-template-rows: 2;
+            grid-template-columns: 3;
+        }
+        .ControlPanel svg {
+            width: 70%;
+        }
+        .ControlPanel div:first-child svg {
+            transform: rotate(90deg);
+        }
+        .ControlPanel div {
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .Forward {
+            grid-row: 1;
+            grid-column: 2;
+        }
+        .TurnLeft, .TurnRight {
+            grid-row: 2;
+        }
+        .TurnLeft {
+            grid-column: 1;
+        }
+        .TurnRight {
+            grid-column: 3;
+        }
+        .Description {
+            font-size: 32px;
+            /* opacity: 0; */
+            position: absolute;
+            top: 7%;
+            left: -45%;
+            width: 40%;
+            height: 48%;
+            border: 3px solid #422331;
+            background-color: #ddd;
+            opacity: 0;
+            transition-property: opacity, left;
+            transition-duration: 1.5s;
+            transition-timing-function: cubic-bezier(1, 0, 0, 1);
+            display: flex;
+            align-items: center;
+            justify-items: center;
+            justify-content: center;
+        }
+        .DescriptionOpenerButton {
+            background-color: #4444b8;
+            border: 4px solid black;
+            border-radius: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition-property: opacity, top, left;
+            transition-duration: 1.5s;
+            transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .DescriptionOpenerButton svg {
+            width: 42px;
+            height: 42px;
+        }
     </style>
 </head>
 <body>
     <div id="root">
         <canvas></canvas>
+
+        <div class="Description"></div>
+
+        <div class="DescriptionOpenerButton">
+            <svg width="81" height="40" viewBox="0 0 81 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.3599 18.8C21.9599 15.6 33.8639 8.30395 41.7999 2.03195L40.6479 0.751953C29.7679 9.83995 17.2239 17.648 1.60791 19.184C0.839914 19.184 0.711914 19.568 0.711914 19.952C0.711914 20.336 0.839914 20.72 1.60791 20.848C17.2239 22.256 31.5599 32.24 40.3919 39.792L41.7999 38.896C31.8159 30.832 21.8319 25.2 12.4879 21.488V20.848L80.1999 21.744L80.3279 17.776L12.3599 19.312V18.8Z" fill="black"/>
+            </svg>
+        </div>
+
+        <div class="ControlPanel">
+            <div class="Forward">
+                <!-- <svg width="40" height="81" viewBox="0 0 40 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.048 12.112C14.848 21.712 7.552 33.616 1.28 41.552L0 40.4C9.088 29.52 16.896 16.976 18.432 1.35999C18.432 0.591989 18.816 0.463989 19.2 0.463989C19.584 0.463989 19.968 0.591989 20.096 1.35999C21.504 16.976 31.488 31.312 39.04 40.144L38.144 41.552C30.08 31.568 24.448 21.584 20.736 12.24H20.096L20.992 79.952L17.024 80.08L18.56 12.112H18.048Z" fill="black"/>
+                </svg> -->
+                <svg width="81" height="40" viewBox="0 0 81 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.3599 18.8C21.9599 15.6 33.8639 8.30395 41.7999 2.03195L40.6479 0.751953C29.7679 9.83995 17.2239 17.648 1.60791 19.184C0.839914 19.184 0.711914 19.568 0.711914 19.952C0.711914 20.336 0.839914 20.72 1.60791 20.848C17.2239 22.256 31.5599 32.24 40.3919 39.792L41.7999 38.896C31.8159 30.832 21.8319 25.2 12.4879 21.488V20.848L80.1999 21.744L80.3279 17.776L12.3599 19.312V18.8Z" fill="black"/>
+                </svg>
+            </div>
+            <div class="TurnLeft">
+                <svg width="81" height="40" viewBox="0 0 81 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.3599 18.8C21.9599 15.6 33.8639 8.30395 41.7999 2.03195L40.6479 0.751953C29.7679 9.83995 17.2239 17.648 1.60791 19.184C0.839914 19.184 0.711914 19.568 0.711914 19.952C0.711914 20.336 0.839914 20.72 1.60791 20.848C17.2239 22.256 31.5599 32.24 40.3919 39.792L41.7999 38.896C31.8159 30.832 21.8319 25.2 12.4879 21.488V20.848L80.1999 21.744L80.3279 17.776L12.3599 19.312V18.8Z" fill="black"/>
+                </svg>
+            </div>
+            <div class="TurnRight">
+                <svg width="81" height="40" viewBox="0 0 81 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M68.6801 18.8C59.0801 15.6 47.1761 8.30395 39.2401 2.03195L40.3921 0.751953C51.2721 9.83995 63.8161 17.648 79.4321 19.184C80.2001 19.184 80.3281 19.568 80.3281 19.952C80.3281 20.336 80.2001 20.72 79.4321 20.848C63.8161 22.256 49.4801 32.24 40.6481 39.792L39.2401 38.896C49.2241 30.832 59.2081 25.2 68.5521 21.488V20.848L0.840118 21.744L0.71212 17.776L68.6801 19.312V18.8Z" fill="black"/>
+                </svg>
+            </div>
+        </div>
     </div>
 
     <script src="../dist/app.js"></script>
