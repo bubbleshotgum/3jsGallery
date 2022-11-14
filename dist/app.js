@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************/
 /***/ ((module) => {
 
-eval("module.exports = JSON.parse('[\"Это проект про острова.\",\"Это стильное худи\",\"Это какая-то ссанина\",\"Это сгусток антиматерии\"]');\n\n//# sourceURL=webpack:///./src/description.json?");
+eval("module.exports = JSON.parse('[\"Это проект про острова.\",\"Это стильное худи\",\"Это первый проект студии Eлegy\",\"Это сгусток антиматерии\"]');\n\n//# sourceURL=webpack:///./src/description.json?");
 
 /***/ })
 
