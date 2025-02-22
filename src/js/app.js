@@ -290,7 +290,7 @@ for(let i = 0; i < 4; i++) {
             new THREE.PlaneGeometry(width, height),
             new THREE.MeshBasicMaterial({
                 // color: 0xdeeeee
-                map: new THREE.TextureLoader().load(`/src/media/photo${i + 1}.jpg`)
+                map: new THREE.TextureLoader().load(`/3jsGallery/src/media/photo${i + 1}.jpg`)
             })
         )
         // nonNegative(i - 2) * Math.PI / 2
